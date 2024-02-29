@@ -1,11 +1,13 @@
-import { defineStore } from "pinia";
+import { defineStore, acceptHMRUpdate } from "pinia";
 import { groupBy } from "lodash";
 import { useAuthStore } from "@/stores/AuthUserStore";
+import { useLocalStorage } from "@vueuse/core";
 
 export const useCartStore = defineStore("CartStore", {
+    historyEnabled: true,
     state: () => {
         return {
-            items: []
+            items: useLocalStorage("CartStore:items", [])
         };
     },
     getters: {
@@ -43,3 +45,7 @@ export const useCartStore = defineStore("CartStore", {
         }
     }
 })
+
+if (import.meta.hot) {
+    import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot))
+}

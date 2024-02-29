@@ -7,6 +7,17 @@ import { useCartStore } from "@/stores/CartStore";
 const productStore = useProductStore();
 const cartStore = useCartStore();
 
+cartStore.$onAction(({ name, store, args, after, onError }) => {
+  if(name === 'addItems'){
+    after(()=>{
+      console.log(args[0])
+    });
+    onError((error)=>{
+      console.log(error)
+    });
+  }
+})
+
 productStore.fill();
 
 </script>
@@ -14,6 +25,10 @@ productStore.fill();
 <template>
   <div class="container">
     <TheHeader />
+    <div class="mb-5 flex justify-end">
+      <AppButton @click="cartStore.undo">Undo</AppButton>
+      <AppButton class="ml-2" @click="cartStore.redo">redo</AppButton>
+    </div>
     <ul class="sm:flex flex-wrap lg:flex-nowrap gap-5">
       <ProductCard
         v-for="product in productStore.products"
