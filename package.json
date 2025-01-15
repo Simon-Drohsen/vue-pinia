@@ -12,7 +12,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@vueuse/core": "^10.9.0",
     "lodash": "^4.17.21",
-    "pinia": "^2.1.7",
+    "pinia": "^2.3.0",
     "vue": "^3.2.16"
   },
   "devDependencies": {
