@@ -9,7 +9,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@vueuse/core": "^10.9.0",
     "lodash": "^4.17.21",
     "pinia": "^2.1.7",
